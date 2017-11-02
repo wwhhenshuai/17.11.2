@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <style>
+        .mo{
+            width: 600px;
+            height: 600px;
+            border:1px dashed lime;
+            margin: 0 auto;
+        }
+        .mo p{
+            float: left;
+            margin-top: 10px;
+        }
+        .mo p span{
+            display: block;
+            float:left;
+            padding-left: 80px;
+        }
+    </style>
+    <body>
+    <div class="mo">
+        
+    </div>
+    </body>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script>
+    $(function(){
+        $.ajax({
+            url:"http://localhost:3000/item/shuju",
+            type:'POST',
+            success:function(data){
+                console.log(data)
+                for(i in data){
+                    $('.mo').append("<p><span>"+data[i].nav+"</span><span>"+data[i].xq+"</span></p>")
+                }
+            }
+        })
+    })
+    </script>
+</html>
